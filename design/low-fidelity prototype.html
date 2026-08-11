@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframes Desktop - Sistema de Eventos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+        /* Estilo base para elementos de wireframe */
+        .wf-input {
+            width: 100%;
+            border: 2px solid #d1d5db;
+            background-color: #f9fafb;
+            padding: 0.75rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 0.75rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .wf-input:focus {
+            border-color: #111827;
+        }
+        .wf-btn {
+            width: 100%;
+            border: 2px solid #111827;
+            padding: 0.75rem;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.2s;
+            background-color: white;
+            color: #111827;
+        }
+        .wf-btn:hover {
+            background-color: #f3f4f6;
+        }
+        .wf-btn-primary {
+            background-color: #111827;
+            color: white;
+        }
+        .wf-btn-primary:hover {
+            background-color: #374151;
+        }
+        .wf-image {
+            width: 100%;
+            background-color: #e5e7eb;
+            border: 2px dashed #9ca3af;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            font-weight: 600;
+        }
+        .browser-window {
+            border: 4px solid #1f2937;
+            border-radius: 0.75rem;
+            background-color: white;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            margin-bottom: 3rem;
+            width: 100%;
+            max-w: 64rem; /* max-w-5xl aprox */
+        }
+        .browser-topbar {
+            background-color: #f3f4f6;
+            border-bottom: 4px solid #1f2937;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .browser-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .browser-dot {
+            width: 1rem;
+            height: 1rem;
+            border-radius: 9999px;
+            border: 2px solid #1f2937;
+        }
+        .browser-url {
+            flex: 1;
+            background-color: white;
+            border: 2px solid #1f2937;
+            border-radius: 0.25rem;
+            padding: 0.25rem 0.75rem;
+            font-family: monospace;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <!-- Notificação Flutuante -->
+    <div id="toast" class="fixed top-5 right-5 bg-black text-white px-6 py-3 rounded-lg shadow-xl opacity-0 transition-opacity duration-300 pointer-events-none z-50">
+        Ação simulada com sucesso!
+    </div>
+
+    <header class="max-w-5xl mx-auto mb-16 text-center">
+        <h1 class="text-5xl font-bold mb-4">Wireframes Desktop</h1>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Visão em formato widescreen (desktop) do aplicativo de Eventos. Elementos reorganizados para aproveitar o espaço horizontal com grids e colunas.</p>
+    </header>
+
+    <main class="max-w-5xl mx-auto space-y-24">
+
+        <!-- ========================================== -->
+        <!-- JORNADA 1: ACESSO -->
+        <!-- ========================================== -->
+        <section>
+            <div class="border-b-4 border-gray-300 pb-2 mb-8 flex justify-between items-end">
+                <h2 class="text-3xl font-bold text-gray-800">🔐 1. Acesso (Comum a todos)</h2>
+            </div>
+            
+            <div class="flex flex-col items-center">
+                <span class="mb-4 font-bold text-gray-500 uppercase tracking-widest text-sm">TELA 01: Login / Cadastro</span>
+                
+                <div class="browser-window">
+                    <div class="browser-topbar">
+                        <div class="browser-dots">
+                            <div class="browser-dot bg-red-400"></div>
+                            <div class="browser-dot bg-yellow-400"></div>
+                            <div class="browser-dot bg-green-400"></div>
+                        </div>
+                        <div class="browser-url">https://app-eventos.com/login</div>
+                    </div>
+                    
+                    <div class="p-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center min-h-[500px]">
+                        <!-- Lado Esquerdo: Branding -->
+                        <div class="flex flex-col justify-center items-center text-center p-8 bg-gray-50 border-2 border-dashed border-gray-300 h-full rounded-xl">
+                            <div class="w-32 h-32 bg-gray-200 rounded-full border-4 border-gray-800 mb-6 flex items-center justify-center text-4xl">🎪</div>
+                            <h3 class="text-4xl font-bold mb-4">App Eventos</h3>
+                            <p class="text-gray-500">A melhor plataforma para criar e gerenciar experiências inesquecíveis.</p>
+                        </div>
+
+                        <!-- Lado Direito: Formulário -->
+                        <div class="px-4">
+                            <h3 class="text-2xl font-bold mb-2">Bem-vindo de volta</h3>
+                            <p class="text-sm text-gray-500 mb-8">Faça login para continuar ou crie uma conta.</p>
+                            
+                            <input type="text" class="wf-input" placeholder="E-mail">
+                            <input type="password" class="wf-input mb-6" placeholder="Senha">
+                            
+                            <button class="wf-btn wf-btn-primary mb-8" onclick="showToast('Login efetuado!')">Entrar na Plataforma</button>
+                            
+                            <div class="relative flex items-center py-4 mb-4">
+                                <div class="flex-grow border-t border-gray-300"></div>
+                                <span class="flex-shrink-0 mx-4 text-gray-400 text-xs font-bold uppercase">Ou simule como</span>
+                                <div class="flex-grow border-t border-gray-300"></div>
+                            </div>
+
+                            <div class="grid grid-cols-3 gap-4">
+                                <button class="wf-btn text-xs py-3 bg-blue-50">👤 Cliente</button>
+                                <button class="wf-btn text-xs py-3 bg-purple-50">🎬 Organizador</button>
+                                <button class="wf-btn text-xs py-3 bg-green-50">🛡️ Portaria</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- JORNADA 2: ORGANIZADOR -->
+        <!-- ========================================== -->
+        <section>
+            <div class="border-b-4 border-gray-300 pb-2 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">🎬 2. Jornada do Organizador</h2>
+            </div>
+            
+            <!-- TELA 02: Dashboard -->
+            <div class="flex flex-col items-center mb-16">
+                <span class="mb-4 font-bold text-gray-500 uppercase tracking-widest text-sm">TELA 02: Dashboard</span>
+                
+                <div class="browser-window">
+                    <div class="browser-topbar">
+                        <div class="browser-dots">
+                            <div class="browser-dot bg-red-400"></div><div class="browser-dot bg-yellow-400"></div><div class="browser-dot bg-green-400"></div>
+                        </div>
+                        <div class="browser-url">https://app-eventos.com/organizador/dashboard</div>
+                    </div>
+                    
+                    <div class="p-8">
+                        <!-- Header do Dashboard Desktop -->
+                        <div class="flex justify-between items-center mb-8 pb-4 border-b-2 border-gray-200">
+                            <div>
+                                <h3 class="text-2xl font-bold">Meus Eventos</h3>
+                                <p class="text-sm text-gray-500">Gerencie seus eventos e acompanhe as vendas.</p>
+                            </div>
+                            <button class="wf-btn wf-btn-primary w-auto px-8">+ Criar Novo Evento</button>
+                        </div>
+                        
+                        <!-- Grid de Eventos -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- Card Evento 1 -->
+                            <div class="border-2 border-gray-300 p-5 rounded-lg hover:border-gray-800 transition-colors bg-white">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h4 class="font-bold text-xl leading-tight">Rock In Rio - Dia 1</h4>
+                                    <span class="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded">ATIVO</span>
+                                </div>
+                                <p class="text-sm text-gray-500 mb-6">📅 20/09/2026<br>📍 Cidade do Rock</p>
+                                
+                                <div class="bg-gray-50 p-4 border border-gray-200 rounded">
+                                    <div class="flex justify-between items-center text-sm font-bold mb-2">
+                                        <span>Ingressos Vendidos</span>
+                                        <span class="text-green-600">450 / 500</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden mb-4">
+                                        <div class="bg-green-500 h-2 w-[90%]"></div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <button class="wf-btn py-1 text-xs bg-white">Gerenciar</button>
+                                        <button class="wf-btn py-1 text-xs bg-white">Ver Portaria</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card Evento 2 -->
+                            <div class="border-2 border-gray-300 p-5 rounded-lg hover:border-gray-800 transition-colors bg-white">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h4 class="font-bold text-xl leading-tight">Cinema: Matrix Resurrections</h4>
+                                    <span class="bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded">EM BREVE</span>
+                                </div>
+                                <p class="text-sm text-gray-500 mb-6">📅 Amanhã, 20h<br>📍 Multiplex Centro</p>
+                                
+                                <div class="bg-gray-50 p-4 border border-gray-200 rounded">
+                                    <div class="flex justify-between items-center text-sm font-bold mb-2">
+                                        <span>Ingressos Vendidos</span>
+                                        <span class="text-orange-500">45 / 200</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden mb-4">
+                                        <div class="bg-orange-500 h-2 w-[22%]"></div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <button class="wf-btn py-1 text-xs bg-white">Gerenciar</button>
+                                        <button class="wf-btn py-1 text-xs bg-white">Ver Portaria</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Empty State Card -->
+                            <div class="border-2 border-dashed border-gray-300 p-5 rounded-lg flex flex-col items-center justify-center text-center text-gray-400 bg-gray-50 h-full min-h-[250px]">
+                                <span class="text-4xl mb-2">+</span>
+                                <p class="font-bold">Espaço para mais eventos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TELA 03: Criação -->
+            <div class="flex flex-col items-center">
+                <span class="mb-4 font-bold text-gray-500 uppercase tracking-widest text-sm">TELA 03: Criação de Evento</span>
+                
+                <div class="browser-window">
+                    <div class="browser-topbar">
+                        <div class="browser-dots">
+                            <div class="browser-dot bg-red-400"></div><div class="browser-dot bg-yellow-400"></div><div class="browser-dot bg-green-400"></div>
+                        </div>
+                        <div class="browser-url">https://app-eventos.com/organizador/novo</div>
+                    </div>
+                    
+                    <div class="p-8">
+                        <div class="flex items-center gap-4 mb-8 border-b-2 border-gray-200 pb-4">
+                            <button class="wf-btn w-auto py-1 px-4 text-sm bg-gray-100 border-gray-300">← Voltar</button>
+                            <h3 class="text-2xl font-bold">Criar Novo Evento</h3>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                            <!-- Coluna Esquerda: Busca API -->
+                            <div class="lg:col-span-1 bg-gray-50 p-6 rounded-lg border-2 border-gray-200">
+                                <label class="block text-sm font-bold text-gray-800 mb-2 uppercase">1. Importar dados (API)</label>
+                                <p class="text-xs text-gray-500 mb-4">Busque filmes no TMDb ou shows na Ticketmaster para preencher automaticamente.</p>
+                                
+                                <div class="flex gap-2 mb-6">
+                                    <input type="text" class="wf-input mb-0" placeholder="Ex: Vingadores...">
+                                    <button class="wf-btn p-0 px-4 w-auto bg-gray-800 text-white border-gray-800">🔍</button>
+                                </div>
+                                
+                                <!-- Mock Resultados -->
+                                <div class="space-y-3">
+                                    <div class="bg-white border-2 border-gray-800 p-3 rounded cursor-pointer flex gap-3 items-center">
+                                        <div class="w-10 h-14 bg-gray-200 flex-shrink-0"></div>
+                                        <div>
+                                            <p class="font-bold text-sm leading-tight">Vingadores: Ultimato (2019)</p>
+                                            <p class="text-xs text-green-600 font-bold mt-1">✓ Selecionado</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white border-2 border-gray-300 p-3 rounded cursor-pointer flex gap-3 items-center opacity-60">
+                                        <div class="w-10 h-14 bg-gray-200 flex-shrink-0"></div>
+                                        <div>
+                                            <p class="font-bold text-sm leading-tight">Os Vingadores (2012)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Coluna Direita: Configuração -->
+                            <div class="lg:col-span-2">
+                                <label class="block text-sm font-bold text-gray-800 mb-4 uppercase">2. Configuração do Evento</label>
+                                
+                                <div class="bg-green-50 border border-green-200 p-4 mb-6 text-sm text-green-800 rounded flex items-center gap-3">
+                                    <span class="text-xl">✨</span>
+                                    <div>
+                                        <strong>Magia da API!</strong> Título, descrição e imagem de capa foram preenchidos automaticamente com base na sua seleção.
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1">DATA E HORA</label>
+                                        <input type="datetime-local" class="wf-input" placeholder="Data e Hora">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1">LOCAL / ENDEREÇO</label>
+                                        <input type="text" class="wf-input" placeholder="Nome do local">
+                                    </div>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1">CAPACIDADE TOTAL</label>
+                                        <input type="number" class="wf-input" placeholder="Ex: 500">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1">PREÇO DO INGRESSO (R$)</label>
+                                        <input type="text" class="wf-input" placeholder="0,00">
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-end gap-4 border-t-2 border-gray-200 pt-6">
+                                    <button class="wf-btn w-auto px-8 bg-gray-100 border-gray-300">Cancelar</button>
+                                    <button class="wf-btn wf-btn-primary w-auto px-12" onclick="showToast('Evento Publicado com Sucesso!')">Publicar Evento</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- JORNADA 3: CLIENTE -->
+        <!-- ========================================== -->
+        <section>
+            <div class="border-b-4 border-gray-300 pb-2 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">🎟️ 3. Jornada do Cliente</h2>
+            </div>
+            
+            <!-- TELA 04: Vitrine -->
+            <div class="flex flex-col items-center mb-16">
+                <span class="mb-4 font-bold text-gray-500 uppercase tracking-widest text-sm">TELA 04: Vitrine de Eventos</span>
+                
+                <div class="browser-window">
+                    <div class="browser-topbar">
+                        <div class="browser-dots">
+                            <div class="browser-dot bg-red-400"></div><div class="browser-dot bg-yellow-400"></div><div class="browser-dot bg-green-400"></div>
+                        </div>
+                        <div class="browser-url">https://app-eventos.com/vitrine</div>
+                    </div>
+                    
+                    <!-- Navegação Desktop Simulada -->
+                    <nav class="bg-gray-800 text-white px-8 py-4 flex justify-between items-center">
+                        <div class="font-bold text-xl tracking-widest">TICKETS<span class="text-gray-400">.APP</span></div>
+                        <div class="flex gap-6 text-sm font-bold">
+                            <a href="#" class="text-white border-b-2 border-white pb-1">Vitrine</a>
+                            <a href="#" class="text-gray-400 hover:text-white">Meus Ingressos</a>
+                            <a href="#" class="text-gray-400 hover:text-white">👤 João Silva</a>
+                        </div>
+                    </nav>
+
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-8">Em Destaque na sua Região</h3>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                            
+                            <!-- Card Vitrine 1 -->
+                            <div class="border-2 border-gray-300 rounded-lg overflow-hidden flex flex-col bg-white hover:-translate-y-1 hover:shadow-xl transition-all">
+                                <div class="wf-image h-48 border-0 border-b-2 border-gray-300 bg-gray-200">
+                                    [ IMAGEM 16:9 ]
+                                </div>
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <h4 class="font-bold text-lg leading-tight mb-2">Festival de Verão 2026</h4>
+                                    <p class="text-sm text-gray-500 mb-1">📅 20 Dezembro</p>
+                                    <p class="text-sm text-gray-500 mb-4">📍 Praia do Futuro</p>
+                                    
+                                    <div class="mt-auto flex justify-between items-center pt-4 border-t border-gray-100">
+                                        <span class="font-bold text-xl text-green-700">R$ 150</span>
+                                        <button class="wf-btn py-2 px-4 text-sm w-auto bg-gray-900 text-white">Comprar</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card Vitrine 2 -->
+                            <div class="border-2 border-gray-300 rounded-lg overflow-hidden flex flex-col bg-white hover:-translate-y-1 hover:shadow-xl transition-all">
+                                <div class="wf-image h-48 border-0 border-b-2 border-gray-300 bg-gray-200">
+                                    [ POSTER DO FILME ]
+                                </div>
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <h4 class="font-bold text-lg leading-tight mb-2">Cinema: Vingadores</h4>
+                                    <p class="text-sm text-gray-500 mb-1">📅 Hoje, 19:00</p>
+                                    <p class="text-sm text-gray-500 mb-4">📍 Shopping Central</p>
+                                    
+                                    <div class="mt-auto flex justify-between items-center pt-4 border-t border-gray-100">
+                                        <span class="font-bold text-xl text-green-700">R$ 45</span>
+                                        <button class="wf-btn py-2 px-4 text-sm w-auto bg-gray-900 text-white">Comprar</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                             <!-- Card Vitrine 3 -->
+                             <div class="border-2 border-gray-300 rounded-lg overflow-hidden flex flex-col bg-white hover:-translate-y-1 hover:shadow-xl transition-all">
+                                <div class="wf-image h-48 border-0 border-b-2 border-gray-300 bg-gray-200">
+                                    [ FOTO STAND-UP ]
+                                </div>
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <h4 class="font-bold text-lg leading-tight mb-2">Stand-up Comedy</h4>
+                                    <p class="text-sm text-gray-500 mb-1">📅 Sexta, 21:00</p>
+                                    <p class="text-sm text-gray-500 mb-4">📍 Teatro Municipal</p>
+                                    
+                                    <div class="mt-auto flex justify-between items-center pt-4 border-t border-gray-100">
+                                        <span class="font-bold text-xl text-green-700">R$ 60</span>
+                                        <button class="wf-btn py-2 px-4 text-sm w-auto bg-gray-900 text-white">Comprar</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Card Vitrine 4 (Mock) -->
+                             <div class="border-2 border-gray-300 rounded-lg overflow-hidden flex flex-col bg-gray-50 opacity-60">
+                                <div class="wf-image h-48 border-0 border-b-2 border-gray-300"></div>
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <div class="h-6 bg-gray-300 rounded w-3/4 mb-4"></div>
+                                    <div class="h-4 bg-gray-200 rounded w-1/2 mb-2"></div>
+                                    <div class="h-4 bg-gray-200 rounded w-1/2 mb-4"></div>
+                                    <div class="mt-auto pt-4 flex justify-between items-center">
+                                         <div class="h-6 bg-gray-300 rounded w-1/3"></div>
+                                         <div class="h-10 bg-gray-300 rounded w-1/3"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TELA 05: Detalhes -->
+            <div class="flex flex-col items-center mb-16">
+                <span class="mb-4 font-bold text-gray-500 uppercase tracking-widest text-sm">TELA 05: Detalhes e Reserva</span>
+                
+                <div class="browser-window">
+                    <div class="browser-topbar">
+                        <div class="browser-dots">
+                            <div class="browser-dot bg-red-400"></div><div class="browser-dot bg-yellow-400"></div><div class="browser-dot bg-green-400"></div>
+                        </div>
+                        <div class="browser-url">https://app-eventos.com/evento/festival-verao</div>
+                    </div>
+                    
+                    <nav class="bg-gray-800 text-white px-8 py-3 flex justify-between items-center">
+                        <div class="text-sm font-bold">← Voltar para Vitrine</div>
+                    </nav>
+
+                    <div class="p-0">
+                        <!-- Banner Hero Desktop -->
+                        <div class="wf-image h-64 md:h-80 border-b-2 border-gray-300 border-l-0 border-r-0 border-t-0 bg-gray-200 relative">
+                            <span class="absolute inset-0 flex items-center justify-center text-3xl opacity-50">[ HEADER PANORÂMICO DO EVENTO (API) ]</span>
+                        </div>
+                        
+                        <div class="p-8 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+                            <!-- Descrição -->
+                            <div class="md:col-span-2">
+                                <h3 class="text-4xl font-bold mb-4">Festival de Verão 2026</h3>
+                                
+                                <div class="flex gap-6 mb-8 text-gray-600 bg-gray-50 p-4 border-l-4 border-gray-800">
+                                    <div><strong class="block text-gray-900">📍 Local</strong> Praia do Futuro</div>
+                                    <div><strong class="block text-gray-900">📅 Data</strong> 20 de Dezembro</div>
+                                    <div><strong class="block text-gray-900">🕒 Abertura</strong> 16:00</div>
+                                </div>
+                                
+                                <h4 class="text-xl font-bold mb-3">Sobre o evento</h4>
+                                <p class="text-gray-700 mb-4 leading-relaxed">
+                                    Texto completo extraído da API. O maior festival de música com diversas atrações confirmadas. Venha curtir o pôr do sol com muita energia, praça de alimentação completa e segurança reforçada.
+                                </p>
+                                <p class="text-gray-700 leading-relaxed">
+                                    Classificação indicativa: 18 anos.<br>
+                                    * Meia-entrada solidária mediante 1kg de alimento.
+                                </p>
+                            </div>
+                            
+                            <!-- Box de Compra -->
+                            <div class="md:col-span-1">
+                                <div class="bg-white border-2 border-gray-800 rounded-lg p-6 sticky top-8 shadow-xl">
+                                    <h4 class="font-bold text-xl mb-6 pb-4 border-b-2 border-gray-100">Comprar Ingressos</h4>
+                                    
+                                    <div class="flex justify-between items-center mb-6">
+                                        <div>
+                                            <p class="font-bold text-gray-800">Pista Premium</p>
+                                            <p class="text-sm text-green-700 font-bold">R$ 150,00</p>
+                                        </div>
+                                        
+                                        <div class="flex items-center gap-4 bg-gray-100 rounded-full border border-gray-300 p-1">
+                                            <button class="w-8 h-8 rounded-full bg-white font-bold border border-gray-300 flex items-center justify-center hover:bg-gray-200">-</button>
+                                            <span class="text-lg font-bold w-4 text-center">2</span>
+                                            <button class="w-8 h-8 rounded-full bg-white font-bold border border-gray-300 flex items-center justify-center hover:bg-gray-200">+</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-4 border border-gray-200 mb-6 rounded">
+                                        <div class="flex justify-between items-end mb-2">
+                                            <span class="text-sm text-gray-600">Subtotal:</span>
+                                            <span class="font-bold">R$ 300,00</span>
+                                        </div>
+                                        <div class="flex justify-between items-end mb-4">
+                                            <span class="text-sm text-gray-600">Taxa (10%):</span>
+                                            <span class="font-bold">R$ 30,00</span>
+                                        </div>
+                                        <div class="flex justify-between items-end border-t border-gray-300 pt-3">
+                                            <span class="font-bold text-gray-800">Total:</span>
+                                            <span class="text-3xl font-bold text-green-700">R$ 330,00</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <button class="wf-btn wf-btn-primary py-4 text-lg">Ir para Pagamento</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TELA 06: Checkout -->
+            <div class="flex flex-col items-center mb-16">
+                <span class="mb-4 font-bold text-gray-500 uppercase tracking-widest text-sm">TELA 06: Checkout Simulado</span>
+                
+                <div class="browser-window">
+                    <div class="browser-topbar">
+                        <div class="browser-dots">
+                            <div class="browser-dot bg-red-400"></div><div class="browser-dot bg-yellow-400"></div><div class="browser-dot bg-green-400"></div>
+                        </div>
+                        <div class="browser-url">https://app-eventos.com/checkout</div>
+                    </div>
+                    
+                    <div class="p-8 md:p-12">
+                        <h3 class="text-3xl font-bold mb-8 text-center pb-6 border-b-2 border-gray-200">Finalizar Compra</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-4xl mx-auto">
+                            <!-- Formulário Mock -->
+                            <div>
+                                <h4 class="text-xl font-bold mb-6">Dados de Pagamento (Mock)</h4>
+                                
+                                <label class="block text-xs font-bold text-gray-600 mb-1 uppercase">NOME IMPRESSO NO CARTÃO</label>
+                                <input type="text" class="wf-input mb-4" placeholder="João da Silva">
+
+                                <label class="block text-xs font-bold text-gray-600 mb-1 uppercase">NÚMERO DO CARTÃO</label>
+                                <input type="text" class="wf-input mb-4" placeholder="0000 0000 0000 0000">
+                                
+                                <div class="grid grid-cols-2 gap-4 mb-8">
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1 uppercase">VALIDADE</label>
+                                        <input type="text" class="wf-input mb-0" placeholder="MM/AA">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1 uppercase">CVV</label>
+                                        <input type="text" class="wf-input mb-0" placeholder="123">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- O Pulo do Gato (Simulação) -->
+                            <div class="bg-gray-50 border-2 border-gray-800 rounded-xl p-8 flex flex-col justify-center relative overflow-hidden">
+                                <div class="absolute top-0 right-0 bg-yellow-400 text-black text-xs font-bold px-4 py-1 rounded-bl-lg border-b-2 border-l-2 border-gray-800">
+                                    ÁREA DE TESTES
+                                </div>
+                                
+                                <h4 class="text-2xl font-bold mb-2 text-center">Resumo: R$ 330,00</h4>
+                                <p class="text-center text-gray-500 text-sm mb-8">2x Pista Premium - Festival de Verão</p>
+
+                                <div class="space-y-4">
+                                    <p class="text-sm font-bold text-center text-gray-700 uppercase mb-2">Selecione o cenário:</p>
+                                    <button class="wf-btn bg-green-500 border-green-700 text-white hover:bg-green-600 py-4" onclick="showToast('✅ Pagamento Aprovado! Redirecionando para Ingressos...')">
+                                        Simular Pagamento Aprovado
+                                    </button>
+                                    <button class="wf-btn bg-red-500 border-red-700 text-white hover:bg-red-600 py-4" onclick="showToast('❌ Pagamento Recusado pelo banco simulado.')">
+                                        Simular Pagamento Recusado
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TELA 07: Ingressos -->
+            <div class="flex flex-col items-center">
+                <span class="mb-4 font-bold text-gray-500 uppercase tracking-widest text-sm">TELA 07: Meus Ingressos</span>
+                
+                <div class="browser-window">
+                    <div class="browser-topbar">
+                        <div class="browser-dots">
+                            <div class="browser-dot bg-red-400"></div><div class="browser-dot bg-yellow-400"></div><div class="browser-dot bg-green-400"></div>
+                        </div>
+                        <div class="browser-url">https://app-eventos.com/meus-ingressos</div>
+                    </div>
+                    
+                    <nav class="bg-gray-800 text-white px-8 py-4 flex justify-between items-center">
+                        <div class="font-bold text-xl tracking-widest">TICKETS<span class="text-gray-400">.APP</span></div>
+                        <div class="flex gap-6 text-sm font-bold">
+                            <a href="#" class="text-gray-400 hover:text-white">Vitrine</a>
+                            <a href="#" class="text-white border-b-2 border-white pb-1">Meus Ingressos</a>
+                        </div>
+                    </nav>
+
+                    <div class="p-8 bg-gray-100 min-h-[400px]">
+                        <h3 class="text-2xl font-bold mb-8">Sua Carteira de Ingressos (2)</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            
+                            <!-- Ticket Card Horizontal Desktop -->
+                            <div class="bg-white border-2 border-gray-800 flex flex-row rounded-lg overflow-hidden shadow-lg">
+                                <!-- Lado QR Code -->
+                                <div class="bg-gray-800 text-white p-6 flex flex-col items-center justify-center w-1/3 border-r-2 border-dashed border-gray-400">
+                                    <div class="w-32 h-32 bg-white border-4 border-white p-1 mb-4">
+                                        <!-- Simulando um QR Code -->
+                                        <div class="w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIi8+CjxyZWN0IHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDAiLz4KPC9zdmc+')]"></div>
+                                    </div>
+                                    <span class="text-xs text-gray-400 tracking-widest">ID: FST-001</span>
+                                </div>
+                                
+                                <!-- Lado Infos -->
+                                <div class="p-6 w-2/3 flex flex-col justify-between">
+                                    <div>
+                                        <h4 class="text-2xl font-bold mb-1">Festival de Verão</h4>
+                                        <p class="text-sm text-gray-500 mb-4">Praia do Futuro • 20 Dez, 16h</p>
+                                        
+                                        <div class="flex justify-between items-center bg-gray-50 p-3 border border-gray-200 mb-4">
+                                            <div>
+                                                <p class="text-xs text-gray-500 uppercase font-bold">TIPO</p>
+                                                <p class="font-bold">Pista Premium</p>
+                                            </div>
+                                            <div class="text-right">
+                                                <p class="text-xs text-gray-500 uppercase font-bold">TITULAR</p>
+                                                <p class="font-bold">João da Silva</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <button class="wf-btn py-2 text-sm flex items-center justify-center gap-2" onclick="showToast('Link copiado! Envie para seu amigo no WhatsApp.')">
+                                        🔗 Copiar Link de Compartilhamento
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Ticket Card 2 -->
+                            <div class="bg-white border-2 border-gray-800 flex flex-row rounded-lg overflow-hidden shadow-lg opacity-80">
+                                <div class="bg-gray-800 text-white p-6 flex flex-col items-center justify-center w-1/3 border-r-2 border-dashed border-gray-400">
+                                    <div class="w-32 h-32 bg-white border-4 border-white p-1 mb-4">
+                                        <div class="w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIi8+CjxyZWN0IHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDAiLz4KPC9zdmc+')]"></div>
+                                    </div>
+                                    <span class="text-xs text-gray-400 tracking-widest">ID: FST-002</span>
+                                </div>
+                                <div class="p-6 w-2/3 flex flex-col justify-between">
+                                    <div>
+                                        <h4 class="text-2xl font-bold mb-1">Festival de Verão</h4>
+                                        <p class="text-sm text-gray-500 mb-4">Praia do Futuro • 20 Dez, 16h</p>
+                                        <div class="flex justify-between items-center bg-gray-50 p-3 border border-gray-200 mb-4">
+                                            <div>
+                                                <p class="text-xs text-gray-500 uppercase font-bold">TIPO</p>
+                                                <p class="font-bold">Pista Premium</p>
+                                            </div>
+                                            <div class="text-right">
+                                                <p class="text-xs text-gray-500 uppercase font-bold">TITULAR</p>
+                                                <p class="font-bold">Convidado</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="wf-btn py-2 text-sm flex items-center justify-center gap-2 bg-green-50 text-green-800 border-green-800">
+                                        ✅ Compartilhado com Maria
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- JORNADA 4: PORTARIA -->
+        <!-- ========================================== -->
+        <section>
+            <div class="border-b-4 border-gray-300 pb-2 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">🛡️ 4. Jornada da Portaria</h2>
+            </div>
+            
+            <!-- TELA 08: Validação -->
+            <div class="flex flex-col items-center">
+                <span class="mb-4 font-bold text-gray-500 uppercase tracking-widest text-sm">TELA 08: Validação na Entrada</span>
+                
+                <div class="browser-window">
+                    <div class="browser-topbar bg-gray-900 border-b-gray-900">
+                        <div class="browser-dots">
+                            <div class="browser-dot bg-gray-600 border-gray-900"></div><div class="browser-dot bg-gray-600 border-gray-900"></div><div class="browser-dot bg-gray-600 border-gray-900"></div>
+                        </div>
+                        <div class="browser-url bg-gray-800 border-gray-800 text-gray-400">https://portaria.app-eventos.com/scanner</div>
+                    </div>
+                    
+                    <div class="p-0 grid grid-cols-1 md:grid-cols-2 bg-gray-900 text-white min-h-[500px]">
+                        
+                        <!-- Câmera / Leitor -->
+                        <div class="p-10 flex flex-col items-center justify-center border-r-2 border-gray-800 relative">
+                            <h3 class="text-xl font-bold mb-8 text-gray-300">Scanner de QR Code</h3>
+                            
+                            <!-- Viewfinder -->
+                            <div class="w-80 h-80 relative border-2 border-dashed border-gray-600 bg-black flex items-center justify-center mb-8">
+                                <p class="text-gray-600 font-mono text-sm">CÂMERA ATIVA</p>
+                                
+                                <!-- Cantos do Scanner -->
+                                <div class="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-green-500"></div>
+                                <div class="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-green-500"></div>
+                                <div class="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-green-500"></div>
+                                <div class="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-green-500"></div>
+                                
+                                <!-- Linha Laser animada -->
+                                <div class="absolute top-1/2 left-4 right-4 h-[2px] bg-red-500 shadow-[0_0_10px_red] animate-pulse"></div>
+                            </div>
+                        </div>
+
+                        <!-- Controles e Status -->
+                        <div class="p-10 flex flex-col justify-center bg-gray-800">
+                            
+                            <div class="mb-10">
+                                <label class="block text-sm font-bold text-gray-400 mb-2 uppercase">Ou digite o código manual</label>
+                                <div class="flex gap-2">
+                                    <input type="text" class="wf-input mb-0 bg-gray-900 border-gray-700 text-white focus:border-green-500" placeholder="Ex: FST-001">
+                                    <button class="wf-btn w-auto px-6 bg-gray-700 border-gray-700 text-white hover:bg-gray-600">Verificar</button>
+                                </div>
+                            </div>
+
+                            <h4 class="text-sm font-bold text-gray-400 mb-4 uppercase border-b border-gray-700 pb-2">Controles de Simulação</h4>
+                            <div class="flex gap-4 mb-8">
+                                <button class="wf-btn bg-gray-900 border-gray-700 text-white hover:border-green-500 hover:text-green-500" onclick="setScanStatus('valid')">
+                                    Simular QR Válido
+                                </button>
+                                <button class="wf-btn bg-gray-900 border-gray-700 text-white hover:border-red-500 hover:text-red-500" onclick="setScanStatus('invalid')">
+                                    Simular QR Inválido
+                                </button>
+                            </div>
+
+                            <!-- Bloco de Status Dinâmico -->
+                            <div id="scan-status" class="w-full bg-black border-4 border-gray-700 rounded-xl p-8 text-center transition-all duration-300 min-h-[160px] flex flex-col items-center justify-center">
+                                <div id="scan-icon" class="text-4xl mb-2 opacity-50">⏳</div>
+                                <span id="scan-text" class="font-bold text-xl text-gray-500">Aguardando leitura do ingresso...</span>
+                                <span id="scan-subtext" class="text-sm text-gray-600 mt-2">Aponte a câmera para o QR Code</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-20 text-center text-gray-500 text-sm pb-10">
+        Desenvolvido como protótipo de baixa fidelidade (Desktop) para apresentação de fluxo.
+    </footer>
+
+    <script>
+        // Função para mostrar notificação em tela (Toast)
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 3000);
+        }
+
+        // Função para simular mudança de status na Tela 08 da Portaria
+        function setScanStatus(status) {
+            const statusBox = document.getElementById('scan-status');
+            const statusText = document.getElementById('scan-text');
+            const statusIcon = document.getElementById('scan-icon');
+            const statusSubtext = document.getElementById('scan-subtext');
+
+            // Reset classes
+            statusBox.className = "w-full border-4 rounded-xl p-8 text-center transition-all duration-300 min-h-[160px] flex flex-col items-center justify-center shadow-2xl scale-105";
+            
+            setTimeout(() => {
+                statusBox.classList.remove('scale-105');
+            }, 200);
+
+            if (status === 'valid') {
+                statusBox.classList.add('bg-green-900', 'border-green-500');
+                statusText.className = "font-bold text-2xl text-white";
+                statusIcon.textContent = "✅";
+                statusIcon.className = "text-5xl mb-2 text-green-400 opacity-100";
+                statusText.textContent = "VÁLIDO!";
+                statusSubtext.textContent = "João da Silva - Pista Premium (Liberado)";
+                statusSubtext.className = "text-green-200 mt-2 font-bold";
+            } else if (status === 'invalid') {
+                statusBox.classList.add('bg-red-900', 'border-red-500');
+                statusText.className = "font-bold text-2xl text-white";
+                statusIcon.textContent = "❌";
+                statusIcon.className = "text-5xl mb-2 text-red-400 opacity-100 animate-bounce";
+                statusText.textContent = "ACESSO NEGADO";
+                statusSubtext.textContent = "Erro: Ingresso já utilizado ou código inválido.";
+                statusSubtext.className = "text-red-200 mt-2 font-bold";
+            }
+        }
+    </script>
+</body>
+</html>

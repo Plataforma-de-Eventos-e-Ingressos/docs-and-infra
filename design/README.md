@@ -1,0 +1,1 @@
+Para visualizar o protótipo de baixa fidelidade, basta abrir o arquivo design/wireframes-desktop.html em qualquer navegador web.
