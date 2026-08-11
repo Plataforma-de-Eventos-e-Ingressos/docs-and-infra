@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  fb:
+    image: postgres:15-alpine
+    container_name: verzel_db
+    environment:
+      # NOTA: Credenciais hardcoded e expostas aqui exclusivamente para 
+      # facilitar a execução local pelos avaliadores da Verzel. 
+      # Em um ambiente real/produção, esses valores seriam injetados via .env.
+      POSTGRES_USER: verzel_user
+      POSTGRES_PASSWORD: verzel_password
+      POSTGRES_DB: verzel_events
+    ports: 
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data: 
+    name: verzel_db_data
