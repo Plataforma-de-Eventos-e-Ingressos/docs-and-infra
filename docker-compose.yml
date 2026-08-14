@@ -1,21 +1,41 @@
-version: '3.8'
-
 services:
-  fb:
+  db:
     image: postgres:15-alpine
-    container_name: verzel_db
+    container_name: elite_tickets_db
     environment:
-      # NOTA: Credenciais hardcoded e expostas aqui exclusivamente para 
-      # facilitar a execução local pelos avaliadores da Verzel. 
-      # Em um ambiente real/produção, esses valores seriam injetados via .env.
-      POSTGRES_USER: verzel_user
-      POSTGRES_PASSWORD: verzel_password
-      POSTGRES_DB: verzel_events
-    ports: 
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    image: robsonad/elite-tickets-api:latest
+    container_name: elite_tickets_api
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: always
+
+  web:
+    image: robsonad/elite-tickets-web:latest
+    container_name: elite_tickets_web
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+    restart: always
 
 volumes:
-  postgres_data: 
-    name: verzel_db_data
+  postgres_data:
