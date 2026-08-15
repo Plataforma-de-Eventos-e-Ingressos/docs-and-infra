@@ -41,6 +41,15 @@ Certifique-se de possuir o **Docker** instalado e em execução.
 
 Podem ser utilizados o Docker Desktop ou o Docker Engine, de acordo com o sistema operacional.
 
+Crie um arquivo `.env` na raiz do projeto:
+
+```env
+POSTGRES_USER==
+POSTGRES_PASSWORD==
+POSTGRES_DB==
+DATABASE_URL==
+```
+
 ### 2. Clone este repositório
 
 Clone o repositório de infraestrutura e navegue até sua pasta raiz:
