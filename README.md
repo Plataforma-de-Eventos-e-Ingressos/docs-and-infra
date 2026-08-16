@@ -74,6 +74,14 @@ Após a inicialização, o banco de dados PostgreSQL estará disponível localme
 ```text
 localhost:5432
 ```
+Front-end
+```text
+localhost:80
+```
+Back-end
+```text
+localhost:8000
+```
 
 A partir desse momento, o **Back-end** pode ser iniciado e configurado para utilizar o PostgreSQL disponibilizado pelo ambiente de infraestrutura.
 
