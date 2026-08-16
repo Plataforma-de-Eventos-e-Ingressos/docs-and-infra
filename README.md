@@ -41,15 +41,6 @@ Certifique-se de possuir o **Docker** instalado e em execução.
 
 Podem ser utilizados o Docker Desktop ou o Docker Engine, de acordo com o sistema operacional.
 
-Crie um arquivo `.env` na raiz do projeto:
-
-```env
-POSTGRES_USER=exemplo_teste
-POSTGRES_PASSWORD=exemplo_teste
-POSTGRES_DB=exemplo_tabela
-DATABASE_URL=postgresql://exemplo_teste:exemplo_teste@db:5432/exemplo_tabela
-```
-
 ### 2. Clone este repositório
 
 Clone o repositório de infraestrutura e navegue até sua pasta raiz:
@@ -57,6 +48,15 @@ Clone o repositório de infraestrutura e navegue até sua pasta raiz:
 ```bash
 git clone https://github.com/Plataforma-de-Eventos-e-Ingressos/docs-and-infra.git
 cd docs-and-infra
+```
+
+Crie um arquivo `.env` na raiz do projeto:
+
+```env
+POSTGRES_USER=exemplo_teste
+POSTGRES_PASSWORD=exemplo_teste
+POSTGRES_DB=exemplo_tabela
+DATABASE_URL=postgresql://exemplo_teste:exemplo_teste@db:5432/exemplo_tabela
 ```
 
 ### 3. Suba os containers
