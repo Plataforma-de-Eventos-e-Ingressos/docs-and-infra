@@ -44,10 +44,10 @@ Podem ser utilizados o Docker Desktop ou o Docker Engine, de acordo com o sistem
 Crie um arquivo `.env` na raiz do projeto:
 
 ```env
-POSTGRES_USER==
-POSTGRES_PASSWORD==
-POSTGRES_DB==
-DATABASE_URL==
+POSTGRES_USER=exemplo_teste
+POSTGRES_PASSWORD=exemplo_teste
+POSTGRES_DB=exemplo_tabela
+DATABASE_URL=postgresql://exemplo_teste:exemplo_teste@db:5432/exemplo_tabela
 ```
 
 ### 2. Clone este repositório
